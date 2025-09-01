@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebration Landing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px 15px;
+      overflow: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #9b5de5, #f15bb5, #f72585);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      display: inline-block;
+      animation: dance 6s infinite ease-in-out;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes dance {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-10px); }
+      50% { transform: translateY(5px); }
+      75% { transform: translateY(-5px); }
+    }
+
+    /* Cake Layer */
+    #cake-layer {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .cake {
+      position: absolute;
+      font-size: 2rem;
+      animation: fallCake 6s linear forwards;
+    }
+
+    @keyframes fallCake {
+      0% { transform: translateY(-120px); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    /* Images that were inside carousel */
+    .celebration-images img {
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 10px auto;
+      display: block;
+      z-index: 5;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Cakes Layer -->
+  <div id="cake-layer"></div>
+
+  <!-- Hero Section -->
+  <div class="mb-5 position-relative" style="z-index:10;">
+    <h1 class="display-4 gradient-text">Retirement & 60th Birthday Celebration</h1>
+    <p class="lead mt-3">Join us in celebrating a life of impact, love, and legacy.</p>
+  </div>
+
+  <!-- Celebration Images (no carousel) -->
+  <div class="celebration-images">
+    <img src="/pics/f67d18b5-7291-4c71-8ce4-31270ccd7f7e.jpeg" alt="Celebration">
+    <img src="/pics/9dc8a1dd-369f-4a97-b0c8-1bf56b777fc7.jpeg" alt="Celebration">
+    <img src="/pics/3a515f8d-58c7-4d06-b2de-f86ec70112ac.jpeg" alt="Celebration">
+    <img src="/pics/82aeeb0a-55b1-4c21-af32-d32e19b260af.jpeg" alt="Celebration">
+    <img src="/pics/DSC_9552.JPG" alt="Celebration">
+    <img src="/pics/932e9d87-a284-48a9-8bf7-3b7551190888.jpeg" alt="Celebration">
+    <img src="/pics/DSC_9590.JPG" alt="Celebration">
+    <img src="/pics/aeb715ad-34ee-4dd7-a4a9-8665d85b8477.jpeg" alt="Celebration">
+    <img src="/pics/cd5615ad-b986-463f-8684-c326d2d85835.jpeg" alt="Celebration">
+    <img src="/pics/DSC_9571.JPG" alt="Celebration">
+    <img src="/pics/DSC_9606.JPG" alt="Celebration">
+  </div>
+
+  <!-- Footer -->
+  <div style="position:relative; z-index:10;">
+    <p class="h5">📅 Saturday, 6th September 2025 • 2:30 PM</p>
+    <p class="fst-italic">🏠 Celebrants Residence</p>
+  </div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="your-music-file.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating Cakes Script -->
+  <script>
+    function createCake() {
+      const cake = document.createElement('div');
+      cake.classList.add('cake');
+      cake.textContent = '🎂';
+
+      // random horizontal position
+      cake.style.left = Math.random() * window.innerWidth + 'px';
+      cake.style.top = '0'; // start at top
+
+      document.getElementById('cake-layer').appendChild(cake);
+
+      setTimeout(() => {
+        cake.remove();
+      }, 6000);
+    }
+
+    setInterval(createCake, 1000);
+  </script>
+
+</body>
+</html>
