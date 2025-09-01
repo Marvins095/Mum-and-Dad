@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -51,10 +51,10 @@
     }
 
     @keyframes floatCake {
-      0% { transform: translateY(100vh); opacity: 0; }
+      0% { transform: translateY(-120px); opacity: 0; }  /* Start above screen */
       20% { opacity: 1; }
       80% { opacity: 1; }
-      100% { transform: translateY(-120px); opacity: 0; }
+      100% { transform: translateY(100vh); opacity: 0; } /* End below screen */
     }
 
     /* Carousel stays on top of cakes */
@@ -126,8 +126,6 @@
     </button>
   </div>
 
-  
-
   <!-- Background Music -->
   <audio autoplay loop>
     <source src="your-music-file.mp3" type="audio/mpeg">
@@ -143,7 +141,7 @@
 
       // random horizontal position
       cake.style.left = Math.random() * window.innerWidth + 'px';
-      cake.style.top = '100%'; // start bottom
+      cake.style.top = '-50px'; // start above the screen
 
       document.getElementById('cake-layer').appendChild(cake);
 
@@ -171,7 +169,4 @@
     }, 5000);
   </script>
 </body>
-</html> 
-
-
- 
+</html>
